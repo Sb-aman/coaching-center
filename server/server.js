@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use("/api/enquiry", enquiryRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Server Running");
+  res.sendFile(path.join(__dirname, "../public/coaching.html"));
 });
 
 const PORT = process.env.PORT || 5000;
@@ -26,6 +26,3 @@ app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/coaching.html"));
-});
