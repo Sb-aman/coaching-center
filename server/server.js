@@ -13,8 +13,7 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname,"public")));
-
+app.use(express.static(path.join(__dirname, "../public")));
 app.use("/api/enquiry", enquiryRoutes);
 
 app.get("/", (req, res) => {
@@ -25,4 +24,8 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/coaching.html"));
 });
